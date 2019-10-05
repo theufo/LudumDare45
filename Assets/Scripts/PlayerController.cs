@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         CardDeck = new List<GameObject>();
         GameController = GameObject.FindGameObjectWithTag("GameGO").GetComponent<GameController>();
+        DontDestroyOnLoad(this);
     }
 
     public void GetStarterCards()

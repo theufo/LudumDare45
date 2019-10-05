@@ -27,6 +27,7 @@ public class DeckController : MonoBehaviour
         InitAdjectives();
 
         PlayerController = GameObject.FindWithTag("PlayerGO").GetComponent<PlayerController>();
+        DontDestroyOnLoad(this);
     }
 
     public static List<GameObject> GetStarterCards()

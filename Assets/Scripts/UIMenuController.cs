@@ -4,6 +4,7 @@ public class UIMenuController : MonoBehaviour
 {
     public Canvas UICanvas;
     public Canvas GameMenuCanvas;
+    public Canvas DialogCanvas;
     public GameObject Inventory;
     public GameObject CardDex;
 
@@ -27,6 +28,12 @@ public class UIMenuController : MonoBehaviour
     public void CloseCardDex()
     {
         CardDex.gameObject.SetActive(false);
+        UICanvas.gameObject.SetActive(true);
+    }
+
+    public void CloseDialog()
+    {
+        DialogCanvas.gameObject.SetActive(false);
         UICanvas.gameObject.SetActive(true);
     }
 

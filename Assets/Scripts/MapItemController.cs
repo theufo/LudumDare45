@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class MapItemController : MonoBehaviour
 {
-    private Text Text;
-
     public string Name;
     public int Index;
     public int RequiredPlayerLevel;
@@ -12,16 +10,19 @@ public class MapItemController : MonoBehaviour
 
     public GameController GameController;
     public PlayerController PlayerController;
-    public Sprite CardSprite;
+    public DialogController DialogController;
+    public Text Text;
 
     void Start()
     {
-        Text = GetComponent<Text>();
+        Text.text = Name;
         GameController = GameObject.FindGameObjectWithTag("GameGO").GetComponent<GameController>();
         PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
+        //DialogController = GameObject.FindGameObjectWithTag("Dialog").GetComponent<DialogController>();
+
     }
 
-    public void Initialized(string name, int requiredPlayerLevel, int requiredDeckLevel)
+    public void Initialized(string name, int Index, int requiredPlayerLevel, int requiredDeckLevel)
     {
         Name = name;
         RequiredPlayerLevel = requiredPlayerLevel;
@@ -30,6 +31,12 @@ public class MapItemController : MonoBehaviour
 
     void OnMouseDown()
     {
-        PlayerController.GetStarterCards();
+        DialogController.gameObject.SetActive(true);
+
+        if (Index == 1 && PlayerController.CardDeck.Count < 10)
+        {
+            var freeDeckButton = DialogController.transform.Find("FreeDeckButton");
+            freeDeckButton.gameObject.SetActive(true);
+        }
     }
 }

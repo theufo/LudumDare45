@@ -7,6 +7,8 @@ TagManager:
   - PlayerGO
   - GameGO
   - DeckGO
+  - Dialog
+  - UIMenuGO
   layers:
   - Default
   - TransparentFX

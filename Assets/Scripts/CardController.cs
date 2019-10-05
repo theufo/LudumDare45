@@ -38,7 +38,6 @@ public class CardController : MonoBehaviour
         NumberText.text = Number + " / 150";
     }
 
-
     public void Discover()
     {
         if (!Discovered)
