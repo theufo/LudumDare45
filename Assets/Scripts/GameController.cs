@@ -7,13 +7,17 @@ public class GameController : MonoBehaviour
     public List<GameObject> MapItems;
 
     public PlayerController PlayerController;
+    public DeckController  DeckController;
 
 
     void Start()
     {
         PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
+        DeckController = GameObject.FindGameObjectWithTag("DeckGO").GetComponent<DeckController>();
 
         DontDestroyOnLoad(this);
+
+        DeckController.GenerateInitialCardSet();
 
         UpdateMapItems();
     }

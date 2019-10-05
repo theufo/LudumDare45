@@ -3,13 +3,15 @@ using UnityEngine.UI;
 
 public class MapItemController : MonoBehaviour
 {
+    private Text Text;
+
     public string Name;
     public int RequiredPlayerLevel;
     public int RequiredDeckLevel;
 
     public GameController GameController;
     public PlayerController PlayerController;
-    private Text Text; 
+    public Sprite CardSprite;
 
     void Start()
     {
