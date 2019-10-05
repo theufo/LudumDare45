@@ -6,6 +6,7 @@ public class MapItemController : MonoBehaviour
     private Text Text;
 
     public string Name;
+    public int Index;
     public int RequiredPlayerLevel;
     public int RequiredDeckLevel;
 
@@ -25,5 +26,10 @@ public class MapItemController : MonoBehaviour
         Name = name;
         RequiredPlayerLevel = requiredPlayerLevel;
         RequiredDeckLevel = requiredDeckLevel;
+    }
+
+    void OnMouseDown()
+    {
+        PlayerController.GetStarterCards();
     }
 }

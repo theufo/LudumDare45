@@ -8,14 +8,14 @@ public class CardController : MonoBehaviour
     public int Number;
     public RarityEnum Rarity;
     public bool IsFoil;
+    public bool Discovered;
 
     public Sprite  CardSprite;
     public GameObject FoilGameObject;
-
-    void Start()
-    {
-        
-    }
+    public GameObject UndiscoveredGameObject;
+    public Text NameText;
+    public Text NumberText;
+    public Text RarityText;
 
     public void Initialize(string name, int number, RarityEnum rarityEnum, Sprite cardSprite, bool isFoil = false)
     {
@@ -30,11 +30,24 @@ public class CardController : MonoBehaviour
         }
         var image = gameObject.GetComponent<Image>();
         image.sprite = CardSprite;
+
+        NameText.text = name;
+        RarityText.text = Rarity.ToString();
+        if (Rarity == RarityEnum.Uncommon)
+            RarityText.fontSize = 16;
+        NumberText.text = Number + " / 150";
     }
 
 
-    void Update()
+    public void Discover()
     {
-        
+        if (!Discovered)
+        {
+            Discovered = true;
+            NameText.gameObject.SetActive(true);
+            NumberText.gameObject.SetActive(true);
+            RarityText.gameObject.SetActive(true);
+            UndiscoveredGameObject.SetActive(false);
+        }
     }
 }
