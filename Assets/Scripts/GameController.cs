@@ -8,18 +8,38 @@ public class GameController : MonoBehaviour
 
     public PlayerController PlayerController;
     public DeckController  DeckController;
+    public DialogController DialogController;
+    public StoryController StoryController;
+    public UIMenuController UIMenuController;
 
 
     void Start()
     {
-        PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
-        DeckController = GameObject.FindGameObjectWithTag("DeckGO").GetComponent<DeckController>();
+        //PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
+        //DeckController = GameObject.FindGameObjectWithTag("DeckGO").GetComponent<DeckController>();
+        //DialogController = GameObject.FindGameObjectWithTag("Dialog").GetComponent<DialogController>();
+        //StoryController = GameObject.FindGameObjectWithTag("StoryGO").GetComponent<StoryController>();
 
         DontDestroyOnLoad(this);
 
         DeckController.GenerateInitialCardSet();
 
         UpdateMapItems();
+
+        StoryController.SetStoryText("Tou have moved to your new room and found some stuff leaved here by previous tennant. Among these things you found a WtC card \"Start with nothing\" and a flyer from some local club, where you can receive your first deck for free \n\n Let's have a look at your inventory!");
+        UIMenuController.OpenInventory();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
+            PlayerController.ChangePlayerLevel(1);
+            PlayerController.ChangeDeckLevel(1);
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
+            PlayerController.ChangePlayerLevel(-1);
+            PlayerController.ChangeDeckLevel(-1);
+        }
     }
 
     public void UpdateMapItems()

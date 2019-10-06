@@ -9,6 +9,7 @@ TagManager:
   - DeckGO
   - Dialog
   - UIMenuGO
+  - StoryGO
   layers:
   - Default
   - TransparentFX

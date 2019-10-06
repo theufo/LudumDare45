@@ -11,11 +11,14 @@ public class PlayerController : MonoBehaviour
     public GameController GameController;
     public GameObject InventoryPopulateGrid;
 
+    public UIMenuController UIMenuController;
+
 
     void Start()
     {
         CardDeck = new List<GameObject>();
         GameController = GameObject.FindGameObjectWithTag("GameGO").GetComponent<GameController>();
+        UIMenuController = GameObject.FindGameObjectWithTag("UIMenuGO").GetComponent<UIMenuController>();
         DontDestroyOnLoad(this);
     }
 
@@ -40,10 +43,12 @@ public class PlayerController : MonoBehaviour
     public void ChangePlayerLevel(int value)
     {
         PlayerLevel += value;
+        UIMenuController.UpdatePlayerLevel(PlayerLevel);
     }
 
     public void ChangeDeckLevel(int value)
     {
         DeckLevel += value;
+        UIMenuController.UpdateDeckLevel(DeckLevel);
     }
 }

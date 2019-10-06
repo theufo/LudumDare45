@@ -11,6 +11,7 @@ public class MapItemController : MonoBehaviour
     public GameController GameController;
     public PlayerController PlayerController;
     public DialogController DialogController;
+    public StoryController StoryController;
     public Text Text;
 
     void Start()
@@ -18,8 +19,8 @@ public class MapItemController : MonoBehaviour
         Text.text = Name;
         GameController = GameObject.FindGameObjectWithTag("GameGO").GetComponent<GameController>();
         PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
-        //DialogController = GameObject.FindGameObjectWithTag("Dialog").GetComponent<DialogController>();
-
+        DialogController = GameController.DialogController;
+        StoryController = GameController.StoryController;
     }
 
     public void Initialized(string name, int Index, int requiredPlayerLevel, int requiredDeckLevel)
@@ -31,12 +32,14 @@ public class MapItemController : MonoBehaviour
 
     void OnMouseDown()
     {
-        DialogController.gameObject.SetActive(true);
+        DialogController.Canvas.gameObject.SetActive(true);
 
         if (Index == 1 && PlayerController.CardDeck.Count < 10)
         {
-            var freeDeckButton = DialogController.transform.Find("FreeDeckButton");
-            freeDeckButton.gameObject.SetActive(true);
+            DialogController.FreeDeckButton.gameObject.SetActive(true);
+            StoryController.SetStoryText("Welcome to our club! \n Have you ever played Witchcraft: the collecting? We have free decks for newcomers");
         }
+        else
+            DialogController.FreeDeckButton.gameObject.SetActive(false);
     }
 }
