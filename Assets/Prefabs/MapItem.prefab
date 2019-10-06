@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.52}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &9062491502640846026
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Sargona
 --- !u!1 &2773559411447857946
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +185,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 10}
   m_Children:
   - {fileID: 659761819143077401}
+  - {fileID: 6006879958532201183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -226,7 +227,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e58cf9337badf84fb6e63b88ed52844, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3351ca14c21defe409b1c25d11ddd732, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -249,13 +250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797de24660557af429e4cf63b70d0806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Club 1
+  Name: Sargona
   Index: 1
   RequiredPlayerLevel: 0
   RequiredDeckLevel: 0
   GameController: {fileID: 0}
   PlayerController: {fileID: 0}
   DialogController: {fileID: 0}
+  StoryController: {fileID: 0}
   Text: {fileID: 6070962213971815901}
 --- !u!61 &177491368505029430
 BoxCollider2D:
@@ -274,14 +276,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 1.4}
+    oldSize: {x: 0.5, y: 0.33}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 1.5}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!1 &3307591842217950748
 GameObject:
@@ -318,7 +320,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -76.6}
-  m_SizeDelta: {x: 120, y: 30}
+  m_SizeDelta: {x: 80, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7046403365282175293
 CanvasRenderer:
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.40392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -356,3 +358,93 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &4921787991311370227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6817690408749652170}
+    m_Modifications:
+    - target: {fileID: 7792909823453223500, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_Name
+      value: Lights
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092810069480978420, guid: cc488944d659d15408e8b5f79e2365d5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc488944d659d15408e8b5f79e2365d5, type: 3}
+--- !u!4 &6006879958532201183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1662124473129393452, guid: cc488944d659d15408e8b5f79e2365d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4921787991311370227}
+  m_PrefabAsset: {fileID: 0}

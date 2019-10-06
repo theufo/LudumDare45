@@ -17,7 +17,7 @@ public class UIMenuController : MonoBehaviour
 
     void Start()
     {
-        UpdatePlayerLevel(0);
+        UpdatePlayerLevel(1);
         UpdateDeckLevel(0);
 
         DontDestroyOnLoad(this);

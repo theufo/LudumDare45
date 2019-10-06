@@ -91,6 +91,7 @@ public class CardController : MonoBehaviour, IComparable<CardController>
                 value *= 2;
 
             PlayerController.ChangePlayerLevel(value);
+            PlayerController.CardDeck.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
         else

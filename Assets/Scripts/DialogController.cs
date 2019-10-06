@@ -26,7 +26,11 @@ public class DialogController : MonoBehaviour
         FreeDeckButton.gameObject.SetActive(false);
 
         CloseDialog();
-        storyController.SetStoryText("Now you have your first ten cards out of 150 and can challenge in clubs to become the best player! \n Collect them all!");
+        storyController.SetStoryText("Now you have your first ten cards out of 150 and can challenge in clubs to become the best player!\n" +
+            "To advance to new clubs and tournaments you must upgrade your deck by winning new cards. There are four rarity types of cards: common, uncommon, rare and mythic. Each type adds different amount of prestige points to your deck. Selling cards give you experience points. \n " +
+            "Both experience and prestige will help you to make your dreams true.   \n " +
+            "Collect them all! \n\n " +
+            "Come back to club for more cards.");
         GameController.UIMenuController.OpenInventory();
     }
 

@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class ChallengeController : MonoBehaviour
 {
     private float prepareTime = 2f;
-    private float challengeTime = 15f;
+    private float challengeTime = 10f;
     private float startTime;
     private float currentTime;
     private bool started;
     private ChallengeState ChallengeState;
-    private int reactons = 3;
+    private int reactonCount = 3;
 
     public Canvas Canvas;
     public Text ChallengeName;
@@ -36,16 +36,18 @@ public class ChallengeController : MonoBehaviour
         Results.gameObject.SetActive(false);
 
         ChallengeState = ChallengeState.Prepare;
-        Initialize("123");
+        Initialize("Pro tour tournament");
         StartCoroutine(Challenge());
     }
 
     public void Initialize(string name)
     {
-        Reactions = new float?[reactons];
+        var multiplier = (PlayerController.PlayerLevel / 10) > 1 ? (PlayerController.PlayerLevel / 10) : 1;
+        reactonCount = (int)(reactonCount + multiplier);
+        Reactions = new float?[reactonCount];
 
         ChallengeName.text = name;
-        for(int i = 0; i < reactons; i++)
+        for(int i = 0; i < reactonCount; i++)
         {
             var xAxis = Random.Range(20, 620) / 100;
             var yAxis = Random.Range(20, 460) / 100;
@@ -148,7 +150,7 @@ public class ChallengeController : MonoBehaviour
             Destroy(unit);
 
         ReactionUnits = new List<GameObject>();
-        Reactions = new float?[reactons];
+        Reactions = new float?[reactonCount];
 
         Canvas.gameObject.SetActive(false);
     }

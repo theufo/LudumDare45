@@ -6,14 +6,10 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     public Text ClickToStartText; 
-    private float fadeTime = 1f;
-    private bool fade = true;
-    private Color white = Color.white;
-    private Color black = Color.black;
 
     private void Start()
     {
-        //StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut());
     }
 
     void Update()
@@ -22,18 +18,25 @@ public class MenuController : MonoBehaviour
             SceneManager.LoadScene("GameScene");
     }
 
-    //IEnumerator FadeOut()
-    //{
-    //    while (ClickToStartText.color != white)
-    //    {
-    //        ClickToStartText.CrossFadeColor(white, fadeTime, true, true);
-    //        yield return null;
-    //    }
+    IEnumerator FadeOut()
+    {
+        while (true)
+        {
+            while (ClickToStartText.color.a > 0)
+            {
+                var tempColor = ClickToStartText.color;
+                tempColor.a -= Time.deltaTime;
+                ClickToStartText.color = tempColor;
+                yield return null;
+            }
 
-    //    while (ClickToStartText.color.a < 0)
-    //    {
-    //        ClickToStartText.color = Color.Lerp(white, black, fadeTime * Time.deltaTime);
-    //        yield return null;
-    //    }
-    //}
+            while (ClickToStartText.color.a < 1)
+            {
+                var tempColor = ClickToStartText.color;
+                tempColor.a += Time.deltaTime;
+                ClickToStartText.color = tempColor;
+                yield return null;
+            }
+        }
+    }
 }

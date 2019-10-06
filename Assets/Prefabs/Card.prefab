@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &973105297320744484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7143154247408634715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -530,7 +530,6 @@ MonoBehaviour:
   Rarity: 0
   IsFoil: 0
   Discovered: 0
-  Sellable: 0
   CardSprite: {fileID: 0}
   FoilGameObject: {fileID: 5599852110310039523}
   UndiscoveredGameObject: {fileID: 2571690823205606896}
@@ -538,6 +537,7 @@ MonoBehaviour:
   NumberText: {fileID: 8233106832016360712}
   RarityText: {fileID: 7429259634847520998}
   SellButton: {fileID: 7399842146280393034}
+  GameController: {fileID: 0}
   PlayerController: {fileID: 0}
 --- !u!1 &5385155254124375601
 GameObject:

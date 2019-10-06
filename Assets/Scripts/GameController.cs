@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
 
         UpdateMapItems();
 
-        StoryController.SetStoryText("You have moved to your new room and found some stuff leaved here by previous tennant. Among these things you found a WtC card \"Start with nothing\" and a flyer from some local club, where you can receive your first deck for free \n\n Let's have a look at your inventory!");
+        StoryController.SetStoryText("You have moved to your new room and found some stuff leaved here by previous tenant. Among these things you found a WtC card \"Start with nothing\" and a flyer from some local club, where you can receive your first deck for free \n\n Let's have a look at your inventory!");
         UIMenuController.OpenInventory();
     }
 

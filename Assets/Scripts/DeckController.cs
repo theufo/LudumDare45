@@ -129,13 +129,13 @@ public class DeckController : MonoBehaviour
         cardController1.Discover();
         var gameObject = Instantiate(card1, PlayerController.InventoryPopulateGrid.transform);
 
-        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard, false);//TODO remove from this method
+        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard);//TODO remove from this method
         PlayerController.CardDeck.Add(gameObject);
         PlayerController.UpdateDeckLevel(gameObject);
 
         var cardController2 = card2.GetComponent<CardController>();
         cardController1.Initialize(name, 1, RarityEnum.Common, CommonCard);
-        cardController2.Initialize(name, 1, RarityEnum.Common, CommonCard, true);
+        cardController2.Initialize(name, 1, RarityEnum.Common, CommonCard, false, true);
 
 
 
@@ -148,22 +148,22 @@ public class DeckController : MonoBehaviour
             cardController2 = card2.GetComponent<CardController>();
             if (i <= 80) {
                 cardController1.Initialize(name, i, RarityEnum.Common, CommonCard);
-                cardController2.Initialize(name, i, RarityEnum.Common, CommonCard, true);
+                cardController2.Initialize(name, i, RarityEnum.Common, CommonCard, false, true);
             }
             else if (i > 80 && i <=120)
             {
                 cardController1.Initialize(name, i, RarityEnum.Uncommon, UncommonCard);
-                cardController2.Initialize(name, i, RarityEnum.Uncommon, UncommonCard, true);
+                cardController2.Initialize(name, i, RarityEnum.Uncommon, UncommonCard, false, true);
             }
             else if (i > 120 && i <=140)
             {
                 cardController1.Initialize(name, i, RarityEnum.Rare, RareCard);
-                cardController2.Initialize(name, i, RarityEnum.Rare, RareCard, true);
+                cardController2.Initialize(name, i, RarityEnum.Rare, RareCard, false, true);
             }
             else if (i > 140 && i <=150)
             {
                 cardController1.Initialize(name, i, RarityEnum.Mythic, MythicCard);
-                cardController2.Initialize(name, i, RarityEnum.Mythic, MythicCard, true);
+                cardController2.Initialize(name, i, RarityEnum.Mythic, MythicCard, false, true);
             }
 
             CardsList.Add(card1);

@@ -37,7 +37,7 @@ public class MapItemController : MonoBehaviour
         if (Index == 1 && PlayerController.CardDeck.Count < 10)
         {
             DialogController.FreeDeckButton.gameObject.SetActive(true);
-            StoryController.SetStoryText("Welcome to our club! \n Have you ever played Witchcraft: the collecting? We have free decks for newcomers");
+            StoryController.SetStoryText("Welcome to our club! \n Have you ever played Witchcraft: the collecting? \n We have free decks for newcomers");
         }
         else
             DialogController.FreeDeckButton.gameObject.SetActive(false);
