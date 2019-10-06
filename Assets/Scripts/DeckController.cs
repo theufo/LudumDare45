@@ -112,7 +112,7 @@ public class DeckController : MonoBehaviour
         var cardController1 = card1.GetComponent<CardController>();
         cardController1.Discover();
         var gameObject = Instantiate(card1, PlayerController.InventoryPopulateGrid.transform);
-        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard);
+        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard, false);
         PlayerController.CardDeck.Add(gameObject);
 
         var cardController2 = card2.GetComponent<CardController>();

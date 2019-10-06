@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public int DeckLevel;
     public List<GameObject> CardDeck;
     public int UniqueCardsCount;
+    public int minDeck = 10;
 
     public GameController GameController;
     public GameObject InventoryPopulateGrid;
@@ -25,11 +26,21 @@ public class PlayerController : MonoBehaviour
     public void GetStarterCards()
     {
         var cards = DeckController.GetStarterCards();
+        SortCards(ref cards);
         foreach (var card in cards)
         {
-            var copy = Instantiate(card, InventoryPopulateGrid.transform); 
+            var copy = Instantiate(card, InventoryPopulateGrid.transform);
+            copy.GetComponent<CardController>().SetSellable(true);
             CardDeck.Add(copy);
         }
+    }
+
+    public void SortCards(ref List<GameObject> gameObjects)
+    {
+        gameObjects.Sort((a, b) => {
+            var asd =  a.GetComponent<CardController>().CompareTo(b.GetComponent<CardController>());
+            return asd;
+        });
     }
 
     public bool CheckLevels(int playerLevel, int playerDeck)
@@ -49,6 +60,19 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeDeckLevel(int value)
     {
+        DeckLevel += value;
+        UIMenuController.UpdateDeckLevel(DeckLevel);
+        GameController.UpdateMapItems();
+    }
+
+    public void UpdateDeckLevel(GameObject card)
+    {
+        var cardController = card.GetComponent<CardController>();
+
+        int value = (int)cardController.Rarity;
+        if (cardController.IsFoil)
+            value *= 2;
+
         DeckLevel += value;
         UIMenuController.UpdateDeckLevel(DeckLevel);
         GameController.UpdateMapItems();
