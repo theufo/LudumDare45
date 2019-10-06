@@ -30,7 +30,7 @@ public class DialogController : MonoBehaviour
 
     public void Challenge()
     {
-        SceneManager.LoadScene("ChallengeScene");
+        GameController.ChallengeController.StartChallenge();
     }
 
     public void CloseDialog()

@@ -6,8 +6,10 @@ public class StoryController : MonoBehaviour
     public Canvas Canvas;
     public Text Text;
 
-    void Awake()
+    void FixedUpdate()
     {
+        if (Input.GetMouseButtonDown(0))
+            CloseStory();
     }
 
     public void SetStoryText(string text)

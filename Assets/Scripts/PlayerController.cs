@@ -44,11 +44,13 @@ public class PlayerController : MonoBehaviour
     {
         PlayerLevel += value;
         UIMenuController.UpdatePlayerLevel(PlayerLevel);
+        GameController.UpdateMapItems();
     }
 
     public void ChangeDeckLevel(int value)
     {
         DeckLevel += value;
         UIMenuController.UpdateDeckLevel(DeckLevel);
+        GameController.UpdateMapItems();
     }
 }
