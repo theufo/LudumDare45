@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public GameObject InventoryPopulateGrid;
 
     public UIMenuController UIMenuController;
-
 
     void Start()
     {
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
             var copy = Instantiate(card, InventoryPopulateGrid.transform);
             copy.GetComponent<CardController>().SetSellable(true);
             CardDeck.Add(copy);
+            UpdateDeckLevel(copy);
         }
     }
 
@@ -76,5 +77,13 @@ public class PlayerController : MonoBehaviour
         DeckLevel += value;
         UIMenuController.UpdateDeckLevel(DeckLevel);
         GameController.UpdateMapItems();
+    }
+
+    public void ReceiveCard(GameObject gameObject)
+    {
+        var copy = Instantiate(gameObject, InventoryPopulateGrid.transform);
+        copy.GetComponent<CardController>().SetSellable(true);
+        CardDeck.Add(copy);
+        UpdateDeckLevel(copy);
     }
 }

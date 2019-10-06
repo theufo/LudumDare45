@@ -11,6 +11,8 @@ public class DialogController : MonoBehaviour
     public GameObject FreeDeckButton;
     public Canvas Canvas;
 
+    private bool firstTime = true;
+
     void Start()
     {
         playerController = GameController.PlayerController;
@@ -30,7 +32,14 @@ public class DialogController : MonoBehaviour
 
     public void Challenge()
     {
-        GameController.ChallengeController.StartChallenge();
+        if (firstTime)
+        {
+            var gameController = GameObject.FindGameObjectWithTag("GameGO").GetComponent<GameController>();
+            gameController.StoryController.SetStoryText("Since this is your first tournament, let me explain the rules.\n During the whole play, sometimes when your opponent will try to cast spell the magic fluent will appear. If you would be lucky enough to click on that fluent, your chance to win will be higher.");
+            firstTime = false;
+        }
+        else
+            GameController.ChallengeController.StartChallenge();
     }
 
     public void CloseDialog()

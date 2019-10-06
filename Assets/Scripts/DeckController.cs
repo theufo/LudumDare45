@@ -44,6 +44,22 @@ public class DeckController : MonoBehaviour
         return starterCards;
     }
 
+    public static GameObject GetRandomCard()
+    {
+        var rarityCounter = Random.Range(0, 142);
+        RarityEnum rarity = RarityEnum.Common;
+        if (rarityCounter <= 100)
+            rarity = RarityEnum.Common;
+        else if (rarityCounter > 100 && rarityCounter <= 130)
+            rarity = RarityEnum.Uncommon;
+        else if (rarityCounter > 130 && rarityCounter <= 140)
+            rarity = RarityEnum.Rare;
+        else if (rarityCounter > 140 && rarityCounter <= 142)
+            rarity = RarityEnum.Mythic;
+
+        return GetCard(rarity, true);
+    }
+
     public static GameObject GetCard(RarityEnum rarityEnum = RarityEnum.Common, bool withFoil = true, int index = -1)
     {
         GameObject card;
@@ -112,8 +128,10 @@ public class DeckController : MonoBehaviour
         var cardController1 = card1.GetComponent<CardController>();
         cardController1.Discover();
         var gameObject = Instantiate(card1, PlayerController.InventoryPopulateGrid.transform);
-        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard, false);
+
+        gameObject.GetComponent<CardController>().Initialize(name, 1, RarityEnum.Common, CommonCard, false);//TODO remove from this method
         PlayerController.CardDeck.Add(gameObject);
+        PlayerController.UpdateDeckLevel(gameObject);
 
         var cardController2 = card2.GetComponent<CardController>();
         cardController1.Initialize(name, 1, RarityEnum.Common, CommonCard);
