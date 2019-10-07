@@ -8,6 +8,8 @@ public class UIMenuController : MonoBehaviour
     public Canvas DialogCanvas;
     public Canvas Inventory;
     public GameObject CardDex;
+    public AudioClip OpenSound;
+    public AudioSource AudioSource;
 
     public Text PlayerLevelText;  
     public Text DeckLevelText;
@@ -19,6 +21,9 @@ public class UIMenuController : MonoBehaviour
     {
         UpdatePlayerLevel(1);
         UpdateDeckLevel(0);
+        AudioSource = gameObject.GetComponent<AudioSource>();
+        AudioSource.clip = OpenSound;
+        AudioSource.playOnAwake = false;
 
         DontDestroyOnLoad(this);
     }
@@ -27,6 +32,7 @@ public class UIMenuController : MonoBehaviour
     {
         Inventory.gameObject.SetActive(true);
         UICanvas.gameObject.SetActive(false);
+        AudioSource.PlayOneShot(OpenSound);
     }
 
     public void CloseInventory()
@@ -38,6 +44,7 @@ public class UIMenuController : MonoBehaviour
     {
         CardDex.gameObject.SetActive(true);
         UICanvas.gameObject.SetActive(false);
+        AudioSource.PlayOneShot(OpenSound);
     }
 
     public void CloseCardDex()
@@ -50,6 +57,7 @@ public class UIMenuController : MonoBehaviour
     {
         UICanvas.gameObject.SetActive(false);
         GameMenuCanvas.gameObject.SetActive(true);
+        AudioSource.PlayOneShot(OpenSound);
     }
 
     public void CloseGameMenu()

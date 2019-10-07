@@ -49,8 +49,8 @@ public class ChallengeController : MonoBehaviour
         ChallengeName.text = name;
         for(int i = 0; i < reactonCount; i++)
         {
-            var xAxis = Random.Range(20, 620) / 100;
-            var yAxis = Random.Range(20, 460) / 100;
+            var xAxis = Random.Range(-620, 620) / 100;
+            var yAxis = Random.Range(-460, 460) / 100;
 
             var gameObject = Instantiate(ReactionUnitPrefab, new Vector3(xAxis, yAxis, 0), Quaternion.identity, this.transform);
             gameObject.SetActive(false);

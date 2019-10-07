@@ -15,6 +15,7 @@ public class CardController : MonoBehaviour, IComparable<CardController>
     public Sprite  CardSprite;
     public GameObject FoilGameObject;
     public GameObject UndiscoveredGameObject;
+    public GameObject Back;
     public Text NameText;
     public Text NumberText;
     public Text RarityText;

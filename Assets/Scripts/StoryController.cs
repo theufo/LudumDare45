@@ -7,9 +7,15 @@ public class StoryController : MonoBehaviour
     public Canvas Canvas;
     public Text Text;
     public Text ClickToStartText;
+    public AudioClip OpenSound;
+    public AudioSource AudioSource;
 
     private void Start()
     {
+        AudioSource = gameObject.GetComponent<AudioSource>();
+        AudioSource.clip = OpenSound;
+        AudioSource.playOnAwake = false;
+
         StartCoroutine(FadeOut());    
     }
 
@@ -23,6 +29,7 @@ public class StoryController : MonoBehaviour
     {
         Text.text = text;
         Canvas.gameObject.SetActive(true);
+        AudioSource.PlayOneShot(OpenSound);
     }
 
     public void CloseStory()
