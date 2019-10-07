@@ -12,35 +12,18 @@ public class GameController : MonoBehaviour
     public StoryController StoryController;
     public UIMenuController UIMenuController;
     public ChallengeController ChallengeController;
-
+    public OpenBoosterController OpenBoosterController;
 
     void Start()
     {
-        //PlayerController = GameObject.FindGameObjectWithTag("PlayerGO").GetComponent<PlayerController>();
-        //DeckController = GameObject.FindGameObjectWithTag("DeckGO").GetComponent<DeckController>();
-        //DialogController = GameObject.FindGameObjectWithTag("Dialog").GetComponent<DialogController>();
-        //StoryController = GameObject.FindGameObjectWithTag("StoryGO").GetComponent<StoryController>();
-
         DontDestroyOnLoad(this);
 
         DeckController.GenerateInitialCardSet();
 
         UpdateMapItems();
 
-        StoryController.SetStoryText("You have moved to your new room and found some stuff leaved here by previous tenant. Among these things you found a WtC card \"Start with nothing\" and a flyer from some local club, where you can receive your first deck for free \n\n Let's have a look at your inventory!");
+        StoryController.SetStoryText("You have moved to your new room and found some stuff leaved here by previous tenant. Among these things you found a Witchcraft: the Collecting card \"Start with nothing\" and a flyer from some local club, where you can receive your first deck for free \n\n Let's have a look at your inventory!");
         UIMenuController.OpenInventory();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
-            PlayerController.ChangePlayerLevel(1);
-            PlayerController.ChangeDeckLevel(1);
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
-            PlayerController.ChangePlayerLevel(-1);
-            PlayerController.ChangeDeckLevel(-1);
-        }
     }
 
     public void UpdateMapItems()
@@ -49,9 +32,23 @@ public class GameController : MonoBehaviour
         {
             var controller = mapItem.GetComponent<MapItemController>();
             if (PlayerController.CheckLevels(controller.RequiredPlayerLevel, controller.RequiredDeckLevel))
-                mapItem.gameObject.SetActive(true);
+            {
+                if (!mapItem.activeSelf)
+                {
+                    mapItem.gameObject.SetActive(true);
+                    if (controller.Index == 7)
+                    {
+                        StoryController.SetStoryText("CONGRATULATIONS!!! \n" +
+                            "Now you can compete with the best Witchery players in the world! \n\n" +
+                            "Check out the map" );
+                    }
+                }
+            }
             else
-                mapItem.gameObject.SetActive(false);
+            {
+                if(mapItem.activeSelf)
+                    mapItem.gameObject.SetActive(false);
+            }
         }
     }
 }

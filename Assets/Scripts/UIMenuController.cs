@@ -8,6 +8,7 @@ public class UIMenuController : MonoBehaviour
     public Canvas DialogCanvas;
     public Canvas Inventory;
     public GameObject CardDex;
+    public GameObject Map;
     public AudioClip OpenSound;
     public AudioSource AudioSource;
 
@@ -32,6 +33,7 @@ public class UIMenuController : MonoBehaviour
     {
         Inventory.gameObject.SetActive(true);
         UICanvas.gameObject.SetActive(false);
+        Map.gameObject.SetActive(false);
         AudioSource.PlayOneShot(OpenSound);
     }
 
@@ -39,11 +41,13 @@ public class UIMenuController : MonoBehaviour
     {
         Inventory.gameObject.SetActive(false);
         UICanvas.gameObject.SetActive(true);
+        Map.gameObject.SetActive(true);
     }
     public void OpenCardDex()
     {
         CardDex.gameObject.SetActive(true);
         UICanvas.gameObject.SetActive(false);
+        Map.gameObject.SetActive(false);
         AudioSource.PlayOneShot(OpenSound);
     }
 
@@ -51,12 +55,14 @@ public class UIMenuController : MonoBehaviour
     {
         CardDex.gameObject.SetActive(false);
         UICanvas.gameObject.SetActive(true);
+        Map.gameObject.SetActive(true);
     }
 
     public void OpenGameMenu()
     {
         UICanvas.gameObject.SetActive(false);
         GameMenuCanvas.gameObject.SetActive(true);
+        Map.gameObject.SetActive(false);
         AudioSource.PlayOneShot(OpenSound);
     }
 
@@ -64,6 +70,7 @@ public class UIMenuController : MonoBehaviour
     {
         UICanvas.gameObject.SetActive(true);
         GameMenuCanvas.gameObject.SetActive(false);
+        Map.gameObject.SetActive(true);
     }
 
     public void Credits()
@@ -76,7 +83,7 @@ public class UIMenuController : MonoBehaviour
 
     public void UpdatePlayerLevel(int level)
     {
-        PlayerLevelText.text = "Player xp: " + level.ToString();
+        PlayerLevelText.text = "Player lvl: " + level.ToString();
     }
 
     public void SwitchMusic(int level)
@@ -91,6 +98,6 @@ public class UIMenuController : MonoBehaviour
 
     public void UpdateDeckLevel(int level)
     {
-        DeckLevelText.text = "Deck level: " + level.ToString();
+        DeckLevelText.text = "Deck prestige: " + level.ToString();
     }
 }

@@ -97,6 +97,25 @@ public class CardController : MonoBehaviour, IComparable<CardController>
         }
         else
             GameController.StoryController.SetStoryText("To be able to play tournaments, player's deck must consist at least 10 cards!");
+    }
 
+    public void SetToBack()
+    {
+        NameText.gameObject.SetActive(false);
+        NumberText.gameObject.SetActive(false);
+        RarityText.gameObject.SetActive(false);
+        SellButton.gameObject.SetActive(false);
+        FoilGameObject.SetActive(false);
+        Back.SetActive(true);
+    }
+
+    public void SetToFront()
+    {
+        NameText.gameObject.SetActive(true);
+        NumberText.gameObject.SetActive(true);
+        RarityText.gameObject.SetActive(true);
+        if(IsFoil)
+            FoilGameObject.SetActive(true);
+        Back.SetActive(false);
     }
 }

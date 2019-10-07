@@ -75,8 +75,8 @@ public class DeckController : MonoBehaviour
         {
             int range = Random.Range(0, 79) * 2;
             if (withFoil)
-                if(Random.Range(0, 24) == 24)
-                    range=+1;
+                if(Random.Range(0, 24) == 5)
+                    range += 1;
             card = CardsList[range];
             card.GetComponent<CardController>().Discover();
             return card;
@@ -85,8 +85,8 @@ public class DeckController : MonoBehaviour
         {
             int range = Random.Range(80, 119) * 2;
             if (withFoil)
-                if (Random.Range(0, 24) == 24)
-                    range = +1;
+                if (Random.Range(0, 24) == 5)
+                    range += 1;
             card = CardsList[range];
             card.GetComponent<CardController>().Discover();
             return card;
@@ -95,8 +95,8 @@ public class DeckController : MonoBehaviour
         {
             int range = Random.Range(120, 139) * 2;
             if (withFoil)
-                if (Random.Range(0, 24) == 24)
-                    range = +1;
+                if (Random.Range(0, 24) == 5)
+                    range += 1;
             card = CardsList[range];
             card.GetComponent<CardController>().Discover();
             return card;
@@ -105,8 +105,8 @@ public class DeckController : MonoBehaviour
         {
             int range = Random.Range(140, 149) * 2;
             if (withFoil)
-                if (Random.Range(0, 24) == 24)
-                    range = +1;
+                if (Random.Range(0, 24) == 5)
+                    range += 1;
             card = CardsList[range];
             card.GetComponent<CardController>().Discover();
             return card;

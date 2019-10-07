@@ -116,24 +116,33 @@ public class ChallengeController : MonoBehaviour
         {
             if(!started)
             {
-                string results = string.Empty;
-                ChallengeName.text = string.Empty;
+                var prizeCards = new List<GameObject>();
+
                 foreach (var reaction in Reactions)
                 {
                     if (reaction != null)
                     {
                         var card = DeckController.GetRandomCard();
-                        results += card.GetComponent<CardController>().Name + "\n";
+                        prizeCards.Add(card);
                         PlayerController.ReceiveCard(card);
                     }
                 }
 
-                Results.text = results;
-                Results.gameObject.SetActive(true);
+                if (prizeCards.Count > 0)
+                {
+                    GameController.OpenBoosterController.Initialize(prizeCards);
+                    GameController.OpenBoosterController.InnerGameObject.SetActive(true);
+                    CloseChallenge();
+                }
+                else
+                {
+                    GameController.StoryController.SetStoryText("Bad luck this time. Maybe, you will win in the next challenge!");
+                    CloseChallenge();
+                }
 
                 started = true;
             }
-            yield return null;
+            yield return new WaitForSeconds(2);
         }
 
         yield return null;
